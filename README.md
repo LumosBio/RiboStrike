@@ -21,10 +21,10 @@ During hyper-opt the dataset is loaded and based on the mode of operation (singl
 In order to train the model, the operation mode is selected and the selected data is featurized and saved. The optimum hyper-parameters from the last step are used to create the model, which is then trained on the training set. Validation set is used to find the best epoch during training, and the best model's weights are loaded in the end. The model is then evaluated on the test set. 
 
 # Inference
-During inference "transfer" is set to True to load the pre-traiend model. The inference dataset type (zinc, lincs, asinex) is set and the related data is loaded and featurized. The predictions and their uncertainties are calculated and saved.
+During inference "transfer" is set to True to load the pre-traiend model. The inference dataset type (zinc and asinex) is set and the related data is loaded and featurized. The predictions and their uncertainties are calculated and saved.
 
 # Task Recommendation
 Once the multitask model is trained on all tasks (at the end of the training code), the sub-models for all tasks are evaluated on the validation set of the target task. By doing so, the models which align the most with the target task's model are found. The tasks relating to these sub-models are chosen and are used as the input for the 'zeroshot' model.
 
 # Molecule Selection
-In the clustering code, similar to inference, the trained model is loaded alongside the inference datasets. The inner representations of the model from the last layer are extracted as fingerprints for each molecule. The fingerprints for top predictions of zinc, lincs, and FDA dataset as well as the fingerprints from the training dataset are clustered using Kmeans clustering (k=10) on top of their UMAP. After clusters are defined, top ten molecules (least uncertainties) are selected from zinc for each cluster. The selected molecules are then passed to the toxicity and dicer models for inference.
+In the clustering code, similar to inference, the trained model is loaded alongside the inference datasets. The inner representations of the model from the last layer are extracted as fingerprints for each molecule. The fingerprints for top predictions of zinc and FDA dataset as well as the fingerprints from the training dataset are clustered using Kmeans clustering (k=10) on top of their UMAP. After clusters are defined, top ten molecules (least uncertainties) are selected from zinc for each cluster. The selected molecules are then passed to the toxicity and dicer models for inference.
