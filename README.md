@@ -1,5 +1,5 @@
 # RiboStrike
-RiboStrike successfully performs virtual screening for miR-21. State-of-the-art deep learning techniques such as multitask learning and hyper-parameter optimization through external validation are leveraged to create a practical and accurate pipeline in silico.
+MicroRNAs are recognized as key drivers in many cancers, but targeting them with small molecules remains a challenge. We present RiboStrike, a deep learning framework that identifies small molecules against specific microRNAs. To demonstrate its capabilities, we applied it to microRNA-21 (miR-21), a known driver of breast cancer. To ensure the selected molecules only targeted miR-21 and not other microRNAs, we also performed a counter-screen against DICER, an enzyme involved in microRNA biogenesis. Additionally, we used auxiliary models to evaluate toxicity and select the best candidates. Using datasets from various sources, we screened a pool of nine million molecules and identified eight, three of which showed anti-miR-21 activity in both reporter assays and RNA sequencing experiments. One of these was also tested in mouse models of breast cancer, resulting in a significant reduction of lung metastases. These results demonstrate RiboStrike’s ability to effectively screen for microRNA-targeting compounds in cancer.
 
 # Prerequisites
 deepchem==2.5.0
